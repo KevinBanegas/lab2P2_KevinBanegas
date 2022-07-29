@@ -98,4 +98,7 @@ public class Carros {
         return costo;
     }
     
+    public String toString(){
+        return "Marca: "+marca+"\nModelo: "+modelo+"\nAño de Farbricación: "+date+"\nFecha Ingreso: "+fechaIngreso+"\nEstado: "+estado+"\nDueño: "+dueño+"\nCosto: "+costo;
+    }
 }

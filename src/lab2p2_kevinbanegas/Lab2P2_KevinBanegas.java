@@ -117,7 +117,7 @@ public class Lab2P2_KevinBanegas {
                             System.out.println("1) Crear");
                             System.out.println("2) Modificar");
                             System.out.println("3) Eliminar");
-                            System.out.println("4) Listar Empleado");
+                            System.out.println("4) Listar Clientes");
                             System.out.println("5) Salir");
                             System.out.println("-------------------");
                             System.out.println("Ingrese una opcion:");
@@ -145,8 +145,60 @@ public class Lab2P2_KevinBanegas {
                                         System.out.println("Indice: " + listaCli.indexOf(object) + "\n" + object);
                                         System.out.println();
                                     }
+                                    System.out.println("Ingrese el indice del cliente:");
+                                    int cli = lea.nextInt();
+                                    lea = new Scanner(System.in);
+                                    if (cli < listaCli.size()) {
+                                        boolean centi = true;
+                                        while (centi == true) {
+                                            System.out.println("-----Modificar-----");
+                                            System.out.println("1) Nombre");
+                                            System.out.println("2) Edad");
+                                            System.out.println("3) Identidad");
+                                            System.out.println("4) Salir");
+                                            System.out.println("-------------------");
+                                            int modificar = lea.nextInt();
+                                            lea = new Scanner(System.in);
+                                            switch (modificar) {
+                                                case 1: {
+                                                    System.out.println("--------------------");
+                                                    System.out.println("Ingrese Nombre: ");
+                                                    String nombre = lea.nextLine();
+                                                    lea = new Scanner(System.in);
+                                                    System.out.println("--------------------");
+                                                }
+                                                break;
+                                                case 2: {
+                                                    System.out.println("--------------------");
+                                                    System.out.println("Ingrese Edad: ");
+                                                    int edad = lea.nextInt();
+                                                    lea = new Scanner(System.in);
+                                                    System.out.println("--------------------");
+                                                }
+                                                break;
+                                                case 3: {
+
+                                                    System.out.println("--------------------");
+                                                    System.out.println("Ingrese Identidad: ");
+                                                    String identidad = lea.next();
+                                                    lea = new Scanner(System.in);
+                                                    System.out.println("--------------------");
+                                                }
+                                                break;
+                                                case 4: {
+
+                                                }
+                                                break;
+                                                default: {
+                                                    System.out.println("Ingreso un dato invalido");
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break;
+
                                 }
-                                break;
+
                                 case 3: {
                                     for (Object object : listaCli) {
                                         System.out.println("Indice: " + listaCli.indexOf(object) + "\n" + object);
@@ -177,20 +229,21 @@ public class Lab2P2_KevinBanegas {
                         }
                     }
                     break;
+
                     case 3: { //Carros
                         boolean centinelaCar = true;
                         while (centinelaCar == true) {
-                            System.out.println("-----Clientes-----");
+                            System.out.println("-------Carros-------");
                             System.out.println("1) Crear");
                             System.out.println("2) Modificar");
-                            System.out.println("3) Listar Empleado");
+                            System.out.println("3) Listar Carros");
                             System.out.println("4) Salir");
                             System.out.println("-------------------");
                             System.out.println("Ingrese una opcion:");
                             int opcionCli = lea.nextInt();
                             lea = new Scanner(System.in);
                             switch (opcionCli) {
-                                case 1:{
+                                case 1: {
                                     System.out.println("--------------------");
                                     System.out.println("Ingrese Marca: ");
                                     String marca = lea.next();
@@ -204,44 +257,72 @@ public class Lab2P2_KevinBanegas {
                                     System.out.println("Ingrese Fecha de Ingreso: ");
                                     String ingreso = lea.next();
                                     lea = new Scanner(System.in);
-                                    System.out.println("Ingrese Dueño: ");
-                                    String dueño = lea.next();
+                                    System.out.println("Ingrese el indice del dueño: ");
+                                    int indice = lea.nextInt();
                                     lea = new Scanner(System.in);
-                                    System.out.println("Ingrese Costo: ");
-                                    double costo = lea.nextInt();
+                                    if (indice < listaCli.size()) {
+                                        String dueño = ((Clientes) (listaCli.get(indice))).getIdentidad();
+                                        System.out.println("Ingrese Costo: ");
+                                        double costo = lea.nextDouble();
+                                        ((Clientes) listaCli.get(indice)).setSueldopagar(costo);
+                                        lea = new Scanner(System.in);
+                                        System.out.println("--------------------");
+
+                                        listaCar.add(new Carros(marca, modelo, año, ingreso, dueño, costo));
+                                    } else {
+                                        System.out.println("El cliente no existe");
+                                    }
+
+                                }
+                                break;
+                                case 2: {
+                                    for (Object object : listaCar) {
+                                        System.out.println("Indice: " + listaCar.indexOf(object) + "\n" + object);
+                                        System.out.println();
+                                    }
+                                    System.out.println("Ingrese el indice del carro que desea modificar: ");
+                                    int indice = lea.nextInt();
                                     lea = new Scanner(System.in);
-                                    System.out.println("--------------------");
-                                    boolean haydueño= false;
-                                    for (Object object : listaCli) {
-                                        haydueño = dueño.equals(((Clientes)(object)).getIdentidad());
+                                    if (indice < listaCar.size()) {
+                                        ((Carros) (listaCar.get(indice))).setEstado();
                                     }
-                                    if (haydueño) {
-                                        listaCar.add(new Carros(marca,modelo,año,ingreso,dueño,costo));
-                                        
-                                    }else{
-                                        System.out.println("No existe el dueño del carro en los clientes del sistema.");
+                                    if ("Saldo pagado".equals(((Carros) (listaCar.get(indice))).getEstado())) {
+                                        System.out.println("Ingrese el metodo de pago: [1-Banco, 2-Taller]");
+                                        int pago = lea.nextInt();
+                                        lea = new Scanner(System.in);
+
+                                        if (pago == 1) {
+                                            ((Carros) (listaCar.get(indice))).setEstado();
+                                        } else if (pago == 2) {
+                                            ((Carros) (listaCar.get(indice))).setEstado();
+                                            ((Carros) (listaCar.get(indice))).setEstado();
+                                        } else {
+                                            System.out.println("Ingreso un dato invalido");
+                                        }
+                                    }
+                                }
+
+                                break;
+
+                                case 3: {
+                                    for (Object object : listaCar) {
+                                        System.out.println("Indice: " + listaCar.indexOf(object) + "\n" + object);
+                                        System.out.println();
                                     }
                                 }
                                 break;
-                                case 2:{
-                                    
+                                case 4: {
+                                    centinelaCar = false;
                                 }
                                 break;
-                                case 3:{
-                                    
-                                }
-                                break;
-                                case 4:{
-                                    centinelaCar=false;
-                                }
-                                break;
-                                default:{
+                                default: {
                                     System.out.println("Ingreso un dato invalido");
                                 }
                             }
                         }
                     }
                     break;
+
                     case 4: {
                         centinela = false;
                     }

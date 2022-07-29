@@ -47,6 +47,6 @@ public class Clientes {
     }
 
     public String toString() {
-        return "Nombre: " + nombre + "\nEdad: " + edad + "\nIdentidad" + identidad + "\nSueldo a Pagar: " + sueldopagar;
+        return "Nombre: " + nombre + "\nEdad: " + edad + "\nIdentidad: " + identidad + "\nSueldo a Pagar: " + sueldopagar;
     }
 }
