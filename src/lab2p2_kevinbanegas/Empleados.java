@@ -7,9 +7,11 @@ public class Empleados {
     private double sueldo;
     private String RRHH;
     private String trabajando;
-    public Empleados(){
-        
+
+    public Empleados() {
+
     }
+
     public Empleados(String nombre, int edad, double sueldo, String RRHH) {
         this.nombre = nombre;
         this.edad = edad;
@@ -63,10 +65,9 @@ public class Empleados {
     public String getTrabajando() {
         return trabajando;
     }
-    
-    public String toString(){
-        return "Nombre: "+nombre+"\nEdad: "+edad+"\nSueldo: "+sueldo+"\nRRHH: "+RRHH+"\n"+trabajando;
+
+    public String toString() {
+        return "Nombre: " + nombre + "\nEdad: " + edad + "\nSueldo: " + sueldo + "\nRRHH: " + RRHH + "\n" + trabajando;
     }
-    
 
 }
