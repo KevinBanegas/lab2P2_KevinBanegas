@@ -24,7 +24,7 @@ public class Lab2P2_KevinBanegas {
             while (centinela == true) {
                 System.out.println("------MENU------");
                 System.out.println("1) Empleados");
-                System.out.println("2) Cientes");
+                System.out.println("2) Clientes");
                 System.out.println("3) Carros");
                 System.out.println("4) Salir");
                 System.out.println("----------------");
@@ -182,6 +182,7 @@ public class Lab2P2_KevinBanegas {
                                                     System.out.println("Ingrese Identidad: ");
                                                     String identidad = lea.next();
                                                     lea = new Scanner(System.in);
+                                                    ((Carros)(listaCar.get(cli))).setDueño(identidad);
                                                     System.out.println("--------------------");
                                                 }
                                                 break;
@@ -287,6 +288,7 @@ public class Lab2P2_KevinBanegas {
                                         ((Carros) (listaCar.get(indice))).setEstado();
                                     }
                                     if ("Saldo pagado".equals(((Carros) (listaCar.get(indice))).getEstado())) {
+                                        ((Clientes)(listaCli.get(indice))).setSueldopagar(0);
                                         System.out.println("Ingrese el metodo de pago: [1-Banco, 2-Taller]");
                                         int pago = lea.nextInt();
                                         lea = new Scanner(System.in);
