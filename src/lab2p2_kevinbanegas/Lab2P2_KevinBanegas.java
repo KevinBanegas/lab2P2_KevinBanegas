@@ -112,7 +112,7 @@ public class Lab2P2_KevinBanegas {
                     case 2: {
                         boolean centinelaCli = true;
                         while (centinelaCli == true) {
-                            System.out.println("-----EMPLEADOS-----");
+                            System.out.println("-----Clientes-----");
                             System.out.println("1) Crear");
                             System.out.println("2) Modificar");
                             System.out.println("3) Eliminar");

@@ -1,14 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab2p2_kevinbanegas;
 
-/**
- *
- * @author Usuario
- */
 public class Clientes {
+    private String nombre;
+    private int edad;
+    private String identidad;
+    private double sueldopagar;
+    
+    public Clientes(String nombre, int edad, String identidad){
+        this.nombre=nombre;
+        this.edad=edad;
+        this.identidad=identidad;
+        this.sueldopagar=0;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public void setEdad(int edad){
+        this.edad=edad;
+    }
+    
+    public int getEdad(){
+        return edad;
+    }
+    
+    public void setIdentidad(String identidad){
+        this.identidad=identidad;
+    }
+    
+    public String getIdentidad(){
+        return identidad;
+    }
+    
+    public void setSueldopagar(double sueldopagar){
+        this.sueldopagar=sueldopagar;
+    }
+    
+    public double getSueldoPagar(){
+        return sueldopagar;
+    }
+    
     
 }
