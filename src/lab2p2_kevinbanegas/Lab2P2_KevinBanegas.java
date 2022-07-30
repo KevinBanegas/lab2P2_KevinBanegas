@@ -292,7 +292,7 @@ public class Lab2P2_KevinBanegas {
                                         String dueño = ((Carros)(listaCar.get(indice))).getDueño();
                                         for (Object object : listaCli) {
                                             if(dueño.equals(((Clientes)(object)).getIdentidad())){
-                                                ((Clientes)(object)).setSueldopagar(-((Clientes)(object)).getSueldoPagar());
+                                                ((Clientes)(object)).setSueldopagar(-1*((Carros)(listaCar.get(indice))).getCosto());
                                             }
                                         }
                                         System.out.println("Ingrese el metodo de pago: [1-Banco, 2-Taller]");
