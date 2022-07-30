@@ -39,7 +39,7 @@ public class Clientes {
     }
 
     public void setSueldopagar(double sueldopagar) {
-        this.sueldopagar = sueldopagar;
+        this.sueldopagar += sueldopagar;
     }
 
     public double getSueldoPagar() {

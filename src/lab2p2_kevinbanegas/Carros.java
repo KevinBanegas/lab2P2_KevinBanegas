@@ -91,7 +91,7 @@ public class Carros {
     }
     
     public void setCosto(double costo){
-        this.costo+=costo;
+        this.costo=costo;
     }
     
     public double getCosto(){
