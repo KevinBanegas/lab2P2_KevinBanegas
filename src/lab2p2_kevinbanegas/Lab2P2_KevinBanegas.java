@@ -8,6 +8,7 @@ public class Lab2P2_KevinBanegas {
     static Scanner lea = new Scanner(System.in);
 
     public static void main(String[] args) {
+        try{
         ArrayList<Object> listaEmp = new ArrayList();
         ArrayList<Object> listaCli = new ArrayList();
         ArrayList<Object> listaCar = new ArrayList();
@@ -288,7 +289,12 @@ public class Lab2P2_KevinBanegas {
                                         ((Carros) (listaCar.get(indice))).setEstado();
                                     }
                                     if ("Saldo pagado".equals(((Carros) (listaCar.get(indice))).getEstado())) {
-                                        ((Clientes)(listaCli.get(indice))).setSueldopagar(0);
+                                        String dueño = ((Carros)(listaCar.get(indice))).getDueño();
+                                        for (Object object : listaCli) {
+                                            if(dueño.equals(((Clientes)(object)).getIdentidad())){
+                                                ((Clientes)(object)).setSueldopagar(0);
+                                            }
+                                        }
                                         System.out.println("Ingrese el metodo de pago: [1-Banco, 2-Taller]");
                                         int pago = lea.nextInt();
                                         lea = new Scanner(System.in);
@@ -334,6 +340,11 @@ public class Lab2P2_KevinBanegas {
                     }
                 }
             }
+        }else{
+            System.out.println("No puede ingresar al sistema.");
+        }
+        }catch(Exception e){
+            System.out.println("Ingreso valores invalidos");
         }
     }
 
